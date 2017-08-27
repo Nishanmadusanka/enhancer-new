@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Issue creation</h1>
+
+    <div class="container">
+        <div class="row">
+            Questions
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+                <input type="submit" value="Create" class="btn btn-default" style="display: flex;justify-content: center" />
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('issue_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

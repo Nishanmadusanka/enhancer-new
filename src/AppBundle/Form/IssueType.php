@@ -6,6 +6,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
+
 class IssueType extends AbstractType
 {
     /**
@@ -13,7 +17,8 @@ class IssueType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title');
+        $builder
+        ->add('title',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>'Business Name:' , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )));
     }
     
     /**
