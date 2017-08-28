@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <script>
+            function aButtonPressed(id) {
+                //var location=Routing.generate('all_recommendations');
+                //console.log(location);
+                $.post('{{ path('all_recommendations') }}',
+                        {id: id},
+                        function (response) {
+                            console.log(response);
+                            if (response.code == 100 && response.success) {//dummy check
+                                //do something
+                                console.log(response.code);
+                            }
+
+                        }, "json");
+            }
+
+        function reply_click(clicked_id)
+        {
+            //aButtonPressed(clicked_id);
+            $.ajax({
+                data: 'orderid=' + clicked_id,
+                url: '{{ path('all_recommendations') }}',
+                method: 'POST', // or GET
+                success: function(msg) {
+                    //alert(msg);
+                    console.log(msg);
+                    var data=JSON.parse(msg);
+                    console.log(data.code);
+                    if (data.code == 100 && data.success) {//dummy check
+                        //do something
+                        console.log("ok");
+                        console.log(data.recommendations);
+                        var showDiv=document.getElementById("viewer");
+                        showDiv.innerHTML=data.html;
+                        console.log(data.html);
+                    }
+                    else{
+                        console.log("no");
+                    }
+                }
+            });
+        }
+
+    </script>
+    <h1>Issue creation</h1>
+
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <ul>
+                {% for issue in titles %}
+                    <li id="{{ loop.index0 }}" onClick="reply_click(this.id)">{{ issue}}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6" id="viewer">
+                <button id="2" onClick="reply_click(this.id)">Click me</button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

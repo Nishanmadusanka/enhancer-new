@@ -1,3 +1,11 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+AcmeHomeBundle_ajax_update_mydata:
+  pattern:  /update/data/from/ajax/call
+  defaults: { _controller: AppBundle:MainController:updateData }
+  options:
+          expose: true
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

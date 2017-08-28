@@ -14,6 +14,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Response;
+
 use AppBundle\Entity\Issue;
 
 class MainController extends Controller
@@ -35,7 +38,7 @@ class MainController extends Controller
 
         $defaultData = array('message' => 'Type your message here');
         $form = $this->createFormBuilder($defaultData)
-            ->add('q1',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[0] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
+            ->add('q1',ChoiceType::class,array('choices'=>array('None'=>null,'Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[0] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
             ->add('q2',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[1] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
             ->add('q3',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[2] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
             ->add('q4',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[3] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
@@ -55,7 +58,7 @@ class MainController extends Controller
             ->add('q18',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[17] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
             ->add('q19',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[18] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
             ->add('q20',ChoiceType::class,array('choices'=>array('Low'=>1,'Medium'=>2,'High'=>3),'label'=>$titles[19] , 'attr'=>array('class'=>"form-control",'placeholder'=>'Post Title' )))
-
+            ->add('send', SubmitType::class,array('attr'=>array('class'=>"btn btn-default")))
             ->getForm();
 
         $form->handleRequest($request);
@@ -66,12 +69,88 @@ class MainController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
+            var_dump($data);
         }
 
         return $this->render('question.html.twig', array(
             'form'=>$form->createView(),
             'titles'=>$titles
         ));
+    }
+
+    /**
+     * show recommendations
+     *
+     * @Route("/allRecommendations", name="all_recommendations")
+     * @Method({"GET", "POST"})
+     */
+    public function showRecommendationAction(Request $request){
+//        $request = $this->container->get('request');
+//        $q_id = $request->query->get('id');
+//        //$id..............
+//        $em = $this->getDoctrine()->getManager()->getConnection();
+//        $result = $em->prepare("SELECT title FROM recommendations WHERE id = :id");
+//        var_dump($q_id);
+//        $result->bindValue('id', $q_id);
+//        $result->execute();
+//        $ids=$result->fetchAll();
+//        $recommendations = array_map('current', $ids);
+//        var_dump($recommendations);
+        $data=$request->request->get('orderid');
+        $id=intval($data);
+        
+        //get data from the database
+        $em = $this->getDoctrine()->getManager()->getConnection();
+        $result = $em->prepare("SELECT title FROM recommendations WHERE issue_id = :id");
+        $result->bindValue('id', $id);
+        $result->execute();
+        $ids=$result->fetchAll();
+        $recommendations = array_map('current', $ids);
+
+        $html_out='<h2>Recommendations</h2><ul>';
+        for ($i=0; $i<sizeof($recommendations);$i++)
+        {
+            $iteration='<li>'.$recommendations[$i].'</li>';
+            $html_out.=$iteration;
+        }
+        
+        $html_out.='</ul>';
+        
+        $response = array("code" => 100, "success" => true,"recommendations"=>$recommendations,"html"=>$html_out);
+        //you can return result as JSON
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * Creates a new issue entity.
+     *
+     * @Route("/recommendations", name="recommendations")
+     * @Method({"GET", "POST"})
+     * 
+     */
+    public function recommendationAction(Request $request){
+        //get data from the database
+        $em = $this->getDoctrine()->getManager()->getConnection();
+        $result = $em->prepare("SELECT title FROM issues");
+        $result->execute();
+        $ids=$result->fetchAll();
+        $issues = array_map('current', $ids);
+        return $this->render('recommendations.html.twig',array(
+            'titles'=>$issues
+        ));
+    }
+
+
+    /**
+     * @Route("/listposts/" ,name="postlist")
+     * @Method({"GET", "POST"})
+     */
+    public function postListAction(Request $request)
+    {
+        var_dump("awa");
+        $response = array("code" => 100, "success" => true);
+        //you can return result as JSON
+        return new Response(json_encode($response));
     }
 
 }
