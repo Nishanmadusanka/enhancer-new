@@ -46,22 +46,23 @@
         }
 
     </script>
-    <h1>Issue creation</h1>
 
     <div class="container">
         <div class="row">
-
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><h1>Issue creation</h1></div>
+            <div class="col-md-4"></div>
         </div>
         <div class="row">
 
-            <div class="col-md-6">
-                <ul>
+            <div class="col-md-7" style="height: 600px;overflow-y: scroll;">
+                <div class="list-group">
                 {% for issue in titles %}
-                    <li id="{{ loop.index0 }}" onClick="reply_click(this.id)">{{ issue}}</li>
+                    <a id="{{ loop.index0 }}" class="list-group-item" onClick="reply_click(this.id)">{{ issue}}</a>
                 {% endfor %}
-                </ul>
+                </div>
             </div>
-            <div class="col-md-6" id="viewer">
+            <div class="col-md-5" id="viewer">
                 <button id="2" onClick="reply_click(this.id)">Click me</button>
             </div>
         </div>

@@ -7,6 +7,11 @@
             <link href="{{ asset('bundles/dist/css/bootstrap.css')  }}" rel="stylesheet" type="text/css" media="all" />
             <link href="{{ asset('bundles/dist/css/bootstrap.min.css')  }}" rel="stylesheet" type="text/css" media="all" />
             <link href="{{ asset('bundles/dist/css/bootstrap-theme.css') }}" rel="stylesheet" type="text/css" media="all">
+
+            <link href="{{ asset('bundles/theme/css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
+            <link href="{{ asset('bundles/theme/css/cm-overlay.css') }}" rel="stylesheet" type="text/css" media="all">
+            <link href="{{ asset('bundles/theme/css/font-awesome.css') }}" rel="stylesheet" type="text/css" media="all">
+            <link href="{{ asset('bundles/theme/css/style.css') }}" rel="stylesheet" type="text/css" media="all">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -18,6 +23,68 @@
             <script src="{{ asset('bundles/dist/js/bootstrap.js') }}"></script>
             <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
             <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/jquery-1.11.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/bootstrap.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/responsiveslides.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/jquery.tools.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/jquery.mobile.custom.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/jquery.cm-overlay.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/jarallax.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/SmoothScroll.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/move-top.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/theme/js/easing.js') }}"></script>
+
+
+
+            <script>
+                // You can also use "$(window).load(function() {"
+                $(function () {
+                    $("#slider").responsiveSlides({
+                        auto: true,
+                        manualControls: '#slider3-pager',
+                    });
+                });
+            </script>
+            <!-- //For-Banner -->
+
+            <script type="text/javascript">
+                /* init Jarallax */
+                $('.jarallax').jarallax({
+                    speed: 0.5,
+                    imgWidth: 1366,
+                    imgHeight: 768
+                })
+            </script>
+            <!-- here starts scrolling icon -->
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    /*
+                     var defaults = {
+                     containerID: 'toTop', // fading element id
+                     containerHoverID: 'toTopHover', // fading element hover id
+                     scrollSpeed: 1200,
+                     easingType: 'linear'
+                     };
+                     */
+
+                    $().UItoTop({ easingType: 'easeOutQuart' });
+
+                });
+            </script>
+
+            <!-- start-smoth-scrolling -->
+            <script type="text/javascript">
+                jQuery(document).ready(function($) {
+                    $(".scroll").click(function(event){
+                        event.preventDefault();
+                        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+                    });
+                });
+            </script>
+            <!-- /ends-smoth-scrolling -->
+            <!-- //here ends scrolling icon -->
+
         {% endblock %}
     </body>
 </html>
