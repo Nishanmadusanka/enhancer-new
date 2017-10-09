@@ -105,12 +105,12 @@ class MainController extends Controller
         $form->handleRequest($request);
 
 
-        var_dump($titles[0]);
+        //var_dump($titles[0]);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-            var_dump($data);
+            //var_dump($data);
             $sum=0;
             $selected_option=2;
             $issues=62;
@@ -123,7 +123,7 @@ class MainController extends Controller
                     array_push($marked_issues,$titles[$i]);
                 }
             }
-            var_dump($sum);
+            //var_dump($sum);
             //get the selected options
             
             return $this->render('score.html.twig',array(
@@ -220,6 +220,56 @@ class MainController extends Controller
     public function homeAction(Request $request)
     {
         return $this->render('index.html.twig');
+    }
+
+    /**
+     * show recommendations
+     *
+     * @Route("/resources", name="resources")
+     * @Method({"GET", "POST"})
+     */
+    public function getResourcesAction(Request $request){
+//        $request = $this->container->get('request');
+//        $q_id = $request->query->get('id');
+//        //$id..............
+//        $em = $this->getDoctrine()->getManager()->getConnection();
+//        $result = $em->prepare("SELECT title FROM recommendations WHERE id = :id");
+//        var_dump($q_id);
+//        $result->bindValue('id', $q_id);
+//        $result->execute();
+//        $ids=$result->fetchAll();
+//        $recommendations = array_map('current', $ids);
+//        var_dump($recommendations);
+        $data=$request->request->get('orderid');
+        $id=intval($data);
+
+        //get data from the database
+        $em = $this->getDoctrine()->getManager()->getConnection();
+        $result = $em->prepare("SELECT title FROM resources WHERE recID = :id");
+        $result->bindValue('id', $id);
+        $result->execute();
+        $ids=$result->fetchAll();
+        $titles = array_map('current', $ids);
+
+        $result = $em->prepare("SELECT src FROM resources WHERE recID = :id");
+        $result->bindValue('id', $id);
+        $result->execute();
+        $ids=$result->fetchAll();
+        $srcs = array_map('current', $ids);
+
+        //var_dump($resources);
+        $html_out='<h2>Resources</h2><ul>';
+        for ($i=0; $i<sizeof($titles);$i++)
+        {
+            $iteration='<li><a href="'.$srcs[$i].'">'.$titles[$i].'</a></li>';
+            $html_out.=$iteration;
+        }
+
+        $html_out.='</ul>';
+
+        $response = array("code" => 100, "success" => true,"resources"=>$titles,"html"=>$html_out);
+        //you can return result as JSON
+        return new Response(json_encode($response));
     }
 
 }
