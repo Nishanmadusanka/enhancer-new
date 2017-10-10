@@ -47,7 +47,7 @@
                 url: '{{ path('resources') }}',
                 method: 'POST', // or GET
                 success: function(msg) {
-                    alert(msg);
+                    //alert(msg);
                     //console.log(msg);
                     var data=JSON.parse(msg);
                     console.log(data.code);
@@ -84,7 +84,6 @@
                 </div>
             </div>
             <div class="col-md-5" id="viewer">
-                <button id="2" onClick="reply_click(this.id)">Click me</button>
             </div>
             <div class="col-md-5" id="sources">
             </div>
