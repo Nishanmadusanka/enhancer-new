@@ -1,50 +1,74 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<script>
-    function reply_click(clicked_id)
-    {
-    //aButtonPressed(clicked_id);
-    $.ajax({
-    data: 'orderid=' + clicked_id,
-    url: '{{ path('all_recommendations') }}',
-    method: 'POST', // or GET
-    success: function(msg) {
-    //alert(msg);
-    console.log(msg);
-    var data=JSON.parse(msg);
-    console.log(data.code);
-    if (data.code == 100 && data.success) {//dummy check
-    //do something
-    console.log("ok");
-    console.log(data.recommendations);
-    var showDiv=document.getElementById("viewer");
-    showDiv.innerHTML=data.html;
-    console.log(data.html);
-    }
-    else{
-    console.log("no");
-    }
-    }
-    });
-    }
+    <script>
+        function reply_click(clicked_id) {
+            //aButtonPressed(clicked_id);
+            $.ajax({
+                data: 'orderid=' + clicked_id,
+                url: '{{ path('all_recommendations') }}',
+                method: 'POST', // or GET
+                success: function (msg) {
+                    //alert(msg);
+                    console.log(msg);
+                    var data = JSON.parse(msg);
+                    console.log(data.code);
+                    if (data.code == 100 && data.success) {//dummy check
+                        //do something
+                        console.log("ok");
+                        console.log(data.recommendations);
+                        var showDiv = document.getElementById("viewer");
+                        showDiv.innerHTML = data.html;
+                        console.log(data.html);
+                    }
+                    else {
+                        console.log("no");
+                    }
+                }
+            });
+            $.ajax({
+                data: 'orderid=' + clicked_id,
+                url: '{{ path('resources') }}',
+                method: 'POST', // or GET
+                success: function (msg) {
+                    alert(msg);
+                    //console.log(msg);
+                    var data = JSON.parse(msg);
+                    console.log(data.code);
+                    if (data.code == 100 && data.success) {//dummy check
+                        //do something
+                        console.log("ok");
+                        console.log(data.resources);
+                        var showDiv = document.getElementById("sources");
+                        showDiv.innerHTML = data.html;
+                        console.log(data.html);
+                    }
+                    else {
+                        console.log("no");
+                    }
+                }
+            });
+        }
 
-</script>
+    </script>
 
-<div class="container">
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><h1>{{ score }}</h1></div>
-    <div class="col-md-4"></div>
-</div>
-<div class="row">
-
-    <div class="col-md-7" style="height: 600px;overflow-y: scroll;">
-        <div class="list-group">
-            {% for issue in issues %}
-                <a id="{{ loop.index0 }}" class="list-group-item" onClick="reply_click(this.id)">{{ issue }}</a>
-            {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><h1>Score: {{ score }}</h1></div>
+            <div class="col-md-4"></div>
         </div>
-    </div>
-</div>
-</div>
+        <div class="row">
+
+            <div class="col-md-7" style="height: 600px;overflow-y: scroll;">
+                <div class="list-group">
+                    {% for issue in issues %}
+                        <a id="{{ loop.index0 }}" class="list-group-item" onClick="reply_click(this.id)">{{ issue }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-5" id="viewer">
+            </div>
+            <div class="col-md-5" id="sources">
+            </div>
+        </div>
 {% endblock %}
