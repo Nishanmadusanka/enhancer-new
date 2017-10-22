@@ -52,9 +52,9 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="menu active" href="{{ path('home') }}">Home</a></li>
                                 <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
-                                <li><a class="menu" href="{{ path('recommendations')  }}">services </a></li>
-                                <li><a class="menu" href="{{ path('home') }}">Documents</a></li>
-                                <li><a class="menu" href="{{ path('home') }}"> Training materials</a></li>
+                                <li><a class="menu" href="{{ path('recommendations')  }}">Techniques </a></li>
+                                <li><a class="menu" href="{{ path('documents') }}">Documents</a></li>
+                                <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
                             </ul>
                         </div><!-- /navbar-collapse -->
                     </div><!-- / .container-fluid -->
@@ -65,7 +65,9 @@
 {#</header> <!-- end of header area -->#}
 {#{% endblock %}#}
 
-<div class="container">{% block body %}{% endblock %}</div>
+{#<div class="container">#}
+    {% block body %}{% endblock %}
+{#</div>#}
 
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('bundles/dist/js/jquery-3.2.1.min.js') }}"></script>

@@ -223,6 +223,7 @@ class MainController extends Controller
         return $this->render('index.html.twig');
     }
 
+
     /**
      * show recommendations
      *
@@ -271,6 +272,24 @@ class MainController extends Controller
         $response = array("code" => 100, "success" => true,"resources"=>$titles,"html"=>$html_out);
         //you can return result as JSON
         return new Response(json_encode($response));
+    }
+
+    /**
+     * @Route("/documents/" ,name="documents")
+     *
+     */
+    public function documentsAction(Request $request)
+    {
+        return $this->render('documents.html.twig');
+    }
+
+    /**
+     * @Route("/materials/" ,name="materials")
+     *
+     */
+    public function materialsAction(Request $request)
+    {
+        return $this->render('materials.html.twig');
     }
 
 }
