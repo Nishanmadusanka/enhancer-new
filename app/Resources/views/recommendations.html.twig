@@ -33,6 +33,7 @@
                         //do something
                         //console.log("ok");
                         //console.log(data.recommendations);
+                        //alert(data.html);
                         var showDiv=document.getElementById("viewer");
                         showDiv.innerHTML=data.html;
                         //console.log(data.html);
@@ -76,17 +77,20 @@
         </div>
         <div class="row">
 
-            <div class="col-md-7" style="height: 600px;overflow-y: scroll;">
+            <div class="col-md-7" style="height: 600px;overflow-y: scroll;font-family: Arial, Helvetica, sans-serif;font-size:12px;">
                 <div class="list-group">
                 {% for issue in titles %}
                     <a id="{{ loop.index0 }}" class="list-group-item" onClick="reply_click(this.id)">{{ issue}}</a>
                 {% endfor %}
                 </div>
             </div>
-            <div class="col-md-5" id="viewer">
+            <div class="col-md-5" style="font-family: Arial, Helvetica, sans-serif;font-size:12px;" >
+                <div class="row">
+                    <div id="viewer"></div>
+                    <div id="sources"></div>
+                </div>
             </div>
-            <div class="col-md-5" id="sources">
-            </div>
+
         </div>
     </div>
 

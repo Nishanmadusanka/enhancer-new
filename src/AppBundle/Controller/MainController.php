@@ -44,7 +44,7 @@ class MainController extends Controller
             ->add('q4',ChoiceType::class,array('choices'=>array(-24=>'Pathetic',-12=>'Bad',0=>'Neutral',12=>'Good',24=>'Excellent'),'data' => 0,'label'=>$titles[3] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title' ,'style'=>'width:200px;float:right')))
             ->add('q5',ChoiceType::class,array('choices'=>array(-20=>'Pathetic',-10=>'Bad',0=>'Neutral',10=>'Good',20=>'Excellent'),'data' => 0,'label'=>$titles[4] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title' ,'style'=>'width:200px;float:right')))
             ->add('q6',ChoiceType::class,array('choices'=>array(-24=>'Pathetic',-12=>'Bad',0=>'Neutral',12=>'Good',24=>'Excellent'),'data' => 0,'label'=>$titles[5] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title','style'=>'width:200px;float:right' )))
-            ->add('q7',ChoiceType::class,array('choices'=>array(-8=>'Frequent',-4=>'Always',0=>'Neutral',4=>'Random',8=>'Never'),'data' => 0,'label'=>$titles[6] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title','style'=>'width:200px;float:right' )))
+            ->add('q7',ChoiceType::class,array('choices'=>array(-8=>'Pathetic',-4=>'Bad',0=>'Neutral',4=>'Good',8=>'Excellent'),'data' => 0,'label'=>$titles[6] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title','style'=>'width:200px;float:right' )))
             ->add('q8',ChoiceType::class,array('choices'=>array(-12=>'Pathetic',-6=>'Bad',0=>'Neutral',6=>'Good',12=>'Excellent'),'data' => 0,'label'=>$titles[7] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title','style'=>'width:200px;float:right' )))
             ->add('q9',ChoiceType::class,array('choices'=>array(-8=>'Pathetic',-4=>'Bad',0=>'Neutral',4=>'Good',8=>'Excellent'),'data' => 0,'label'=>$titles[8] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title','style'=>'width:200px;float:right' )))
             ->add('q10',ChoiceType::class,array('choices'=>array(-24=>'Pathetic',-12=>'Bad',0=>'Neutral',12=>'Good',24=>'Excellent'),'data' => 0,'label'=>$titles[9] , 'attr'=>array('class'=>"form-control div123",'placeholder'=>'Post Title','style'=>'width:200px;float:right' )))
@@ -171,7 +171,7 @@ class MainController extends Controller
         $html_out='<h2>Recommendations</h2><ul>';
         for ($i=0; $i<sizeof($recommendations);$i++)
         {
-            $iteration='<li>'.$recommendations[$i].'</li><br>';
+            $iteration='<li>'.$recommendations[$i].'</li>';
             $html_out.=$iteration;
         }
         
@@ -290,6 +290,15 @@ class MainController extends Controller
     public function materialsAction(Request $request)
     {
         return $this->render('materials.html.twig');
+    }
+
+    /**
+     * @Route("/help/" ,name="help")
+     *
+     */
+    public function helpAction(Request $request)
+    {
+        return $this->render('help.html.twig');
     }
 
 }
