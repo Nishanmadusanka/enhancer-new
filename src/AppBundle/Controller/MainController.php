@@ -126,10 +126,13 @@ class MainController extends Controller
             }
             //var_dump($sum);
             //get the selected options
+
+            $sum=($sum+764)*100/1528;
+            $output=strval(ceil($sum))."%";
             
             return $this->render('score.html.twig',array(
                 'issues'=>$marked_issues,
-                'score'=>$sum
+                'score'=>$output
             ));
         }
 

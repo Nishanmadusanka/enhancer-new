@@ -30,7 +30,6 @@
                 url: '{{ path('resources') }}',
                 method: 'POST', // or GET
                 success: function (msg) {
-                    alert(msg);
                     //console.log(msg);
                     var data = JSON.parse(msg);
                     console.log(data.code);
@@ -53,10 +52,15 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4"><h1>Score: {{ score }}</h1></div>
-            <div class="col-md-4"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-8"><h1 style="font-family: Arial, Helvetica, sans-serif;font-size:30px;">Worker's Productivity in Your Site</h1></div>
+            <div class="col-md-2"></div>
         </div>
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2"><h1 style="font-family: Arial, Helvetica, sans-serif;font-size:80px;color: #F90C0F">{{ score }}</h1></div>
+            <div class="col-md-5"></div>
+        </div><br><br>
         <div class="row">
 
             <div class="col-md-7" style="height: 600px;overflow-y: scroll;">
