@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
-
+{% block navBar %}
+    <li><a class="menu" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu active" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
 {% block body %}
     <section>
         <div class="container-fluid">
@@ -22,6 +31,8 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
+                        </a><br>
+                        </a><br>
                         <h1>Select the most appropriate answer based on your construction site</h1>
                         <h5>......................................................................................................................................................................................................................................................................................................................................................................................</h5><br>
                     </div>

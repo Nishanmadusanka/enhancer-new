@@ -1,4 +1,16 @@
 {% extends 'base.html.twig' %}
+
+{% block navBar %}
+    <li><a class="menu" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu active" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
+
 {% block body %}
     <script>
         function reply_click(clicked_id) {
@@ -50,17 +62,25 @@
 
     </script>
 
-    <div class="container">
+    <div class="container" style="font-family: Arial, Helvetica, sans-serif;">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8"><h1 style="font-family: Arial, Helvetica, sans-serif;font-size:30px;">Worker's Productivity in Your Site</h1></div>
+            <div class="col-md-8"><h1 style="font-family: Arial, Helvetica, sans-serif;font-size:30px;">Relative productivity Assesment Value</h1></div>
             <div class="col-md-2"></div>
         </div>
         <div class="row">
             <div class="col-md-5"></div>
             <div class="col-md-2"><h1 style="font-family: Arial, Helvetica, sans-serif;font-size:80px;color: #F90C0F">{{ score }}</h1></div>
             <div class="col-md-5"></div>
-        </div><br><br>
+        </div>
+        <div class="row">
+            {% set scoreVal = 20 %}
+            {% set widthValue = 'width:' ~ score %}
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="{{ widthValue }}" aria-valuenow="{{ score }}" aria-valuemin="0" aria-valuemax="100">{{ score }}</div>
+            </div>
+        </div>
+        <br><br>
         <div class="row">
 
             <div class="col-md-7" style="height: 600px;overflow-y: scroll;">
@@ -70,7 +90,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-5" id="viewer">
+            <div class="col-md-5" id="viewer"  style="font-family: Arial, Helvetica, sans-serif;">
             </div>
             <div class="col-md-5" id="sources">
             </div>

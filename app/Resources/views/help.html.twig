@@ -1,11 +1,24 @@
 {% extends 'base.html.twig' %}
 
+{% block navBar %}
+    <li><a class="menu" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu active" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
+
 {% block body %}
 
     <div class="container">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10" style="font-family: Arial, Helvetica, sans-serif;font-size:12px;">
+                </a><br>
+                </a><br>
                 <h1 style="color: blue;">Please follow these instructions to easy use</h1><br>
                 <h3 style="color: blue;">Objective of the web page.....</h3>
                 <h4 style="color: black;">This web page is to be used by project managers, Top decision makers, Engineers to assess the current productivity issues from the pre planning stage up to the project’s completion and to get solutions and enhance the worker's productivity level of the construction sites</h4><br>

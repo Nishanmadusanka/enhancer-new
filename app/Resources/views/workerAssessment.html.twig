@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block navBar %}
+    <li><a class="menu" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu active" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="container text-center" style="margin-top: 100px;">
+        <h3 class="text-danger"> This function will be added later.</h3>
+        <img src="{{ asset('bundles/dist1/img/ucons.png') }}" style="height: 300px; width: 300px;" alt="">
+
+    </div>
+{% endblock %}

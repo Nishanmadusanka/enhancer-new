@@ -143,6 +143,34 @@ class MainController extends Controller
     }
 
     /**
+     * @Route("/workerAssessment",name="worker_assessment")
+     * @Method({"GET"})
+     *
+     */
+    public function showWorkerAssessmentAction(Request $request){
+        return $this->render('workerAssessment.html.twig');
+    }
+
+
+    /**
+     * @Route("/bim",name="bim")
+     * @Method({"GET"})
+     *
+     */
+    public function showBIMAction(Request $request){
+        return $this->render('bim.html.twig');
+    }
+
+    /**
+     * @Route("/safety",name="safety")
+     * @Method({"GET"})
+     *
+     */
+    public function showSafetyAction(Request $request){
+        return $this->render('safety.html.twig');
+    }
+
+    /**
      * show recommendations
      *
      * @Route("/allRecommendations", name="all_recommendations")

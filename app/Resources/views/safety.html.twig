@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block navBar %}
+    <li><a class="menu" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu active" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" style="font-family: Arial, Helvetica, sans-serif;font-size:12px;">
+                <h1>Safety</h1>
+                <h3>1.Safety equipment</h3>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeZW9UOTNNcFNKR2c">1.1-10 Best Men's Work Boots 2017</a><br>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeMWZycC02aWluR00">1.2-Site Safety and Health Management Construction</a><br>
+                <h3>2.Overall</h3>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeOWxNQzRMcENfdVU">2.1-Basic Safety Tips on A Construction Site</a><br>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeNUZleThHSVBwdkU">2.2-Construction Safety Tips	</a><br>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeWUFmY1FHOFR6NVE">2.3-safety rules construction site</a><br>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeOWJsbkNOc1hLMk0">2.4-Working at Height Safety</a><br>
+                <h3>3.Material handling</h3>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeM25FTjEwTnJfS1E">3.1-Material Handling Safety Training</a><br>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeRHl6SmxwbEZ4SDg">3.2-Material Storage Safety</a><br>
+                <a href="https://drive.google.com/open?id=0Bz02_NbbNZVecEpod0UwM0V0dU0">3.3-Occupational Safety Done Right - Material Handling</a><br>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+{% endblock %}

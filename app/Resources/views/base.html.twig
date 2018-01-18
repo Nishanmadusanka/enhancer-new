@@ -50,12 +50,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a class="menu active" href="{{ path('home') }}">Home</a></li>
-                                <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
-                                <li><a class="menu" href="{{ path('recommendations')  }}">Techniques </a></li>
-                                <li><a class="menu" href="{{ path('documents') }}">Documents</a></li>
-                                <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
-                                <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+                                {% block navBar%}{% endblock %}
                             </ul>
                         </div><!-- /navbar-collapse -->
                     </div><!-- / .container-fluid -->
@@ -81,9 +76,7 @@
             <div class="col-xs-6 footer-para">
                 <p>Educational purpose only. Not for commercial use!</p>
             </div>
-            <div class="col-xs-6 text-right">
-                <a href="https://www.facebook.com/nishan.madusankakarunarathna"><i class="fa fa-facebook"></i></a>
-            </div>
+
         </div>
     </div>
 </footer>

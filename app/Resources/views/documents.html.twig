@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
-
+{% block navBar %}
+    <li><a class="menu" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu active" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
 {% block body %}
 
     <div class="container">
@@ -15,25 +24,22 @@
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeMkJ4d0x6VjBHQlU">2.3-Chapter 3: Method Statement for Casting Concrete on Vertical Elements</a><br>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeMlI0bzdTb3B0eVk">2.4- Admixtures</a><br>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVed0hMdE0wd0lyTE0">2.5-Material and concrete testing</a><br>
-                <h3>3.Formwork</h3>
-                <h3>4.Foundation</h3>
+                <h3>3.Foundation</h3>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVed0hMdE0wd0lyTE0">4.1 Material and concrete testing</a><br>
-                <h3>5.Painting</h3>
-                <h3>6.Piling</h3>
+                <h3>4.Piling</h3>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeTjJKTUdTazlYUFU">6.1-River wall sheet piling</a><br>
-                <h3>7.Plastering</h3>
+                <h3>5.Plastering</h3>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeMkJ4d0x6VjBHQlU">7.1-Chapter 6: Method Statement for Normal Cement Site-Mix Plaster Works</a><br>
-                <h3>8.Rebaring</h3>
-                <h3>9.Tiling</h3>
+                <h3>6.Tiling</h3>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeMkJ4d0x6VjBHQlU">9.1-Chapter 8: Method Statement for Kerbstone and Interlock Tiles</a><br>
-                <h3>10.Water proofing</h3>
+                <h3>7.Water proofing</h3>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeZHd2aGFyVUw3YW8">10.1 - Basement waterproofing</a><br>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeZHgwR0x6NEY5OHM">10.2-Waterproofing-memthod statement</a><br>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVednhpZ0x6NzZVa0k">10.3 - Roof / Terrace Waterproofing</a><br>
                 <a href="https://drive.google.com/open?id=0Bz02_NbbNZVeMkJ4d0x6VjBHQlU">10.4-Chapter 11: Method Statement for Water Leakage Test for
                     Curtain Walls
                 </a><br>
-                <h1>ICTAD Documents</h1>
+                <h1></h1>
             </div>
             <div class="col-md-1"></div>
         </div>

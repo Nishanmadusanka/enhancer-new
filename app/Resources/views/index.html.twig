@@ -1,4 +1,14 @@
 {% extends 'base.html.twig' %}
+{% block navBar %}
+    <li><a class="menu active" href="{{ path('home') }}">Home</a></li>
+    <li><a class="menu" href="{{ path('new_questions')}}">Assess</a></li>
+    <li><a class="menu" href="{{ path('documents') }}">Specifications</a></li>
+    <li><a class="menu" href="{{ path('materials') }}"> Training materials</a></li>
+    <li><a class="menu" href="{{ path('worker_assessment') }}">Worker assessment</a></li>
+    <li><a class="menu" href="{{ path('bim')  }}">BIM </a></li>
+    <li><a class="menu" href="{{ path('safety') }}">Safety</a></li>
+    <li><a class="menu" href="{{ path('help') }}"> Help</a></li>
+{% endblock %}
 
 {% block body %}
     {#<section class="slider" id="home">#}
@@ -9,31 +19,31 @@
                     {#<!-- Wrapper for slides -->#}
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="{{ asset('bundles/dist1/img/slide-one.jpg') }}" alt="">
+                            <img src="{{ asset('bundles/dist1/img/slide-one.png') }}" alt="">
                             <div class="carousel-caption">
-                                <h1>Enhancer</h1>
-                                <p>Helps to enhance the worker's productivity</p>
+                                <h1></h1>
+                                <p></p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="{{ asset('bundles/dist1/img/slide-two.jpg') }}" alt="">
+                            <img src="{{ asset('bundles/dist1/img/slide-two.png') }}" alt="">
                             <div class="carousel-caption">
-                                <h1>Assess</h1>
-                                <p>Evaluate the worker's productivity of your site</p>
+                                <h1></h1>
+                                <p></p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="{{ asset('bundles/dist1/img/slide-three.jpg') }}" alt="">
+                            <img src="{{ asset('bundles/dist1/img/slide-three.png') }}" alt="">
                             <div class="carousel-caption">
-                                <h1>Techniques</h1>
-                                <p>Details about new technologies</p>
+                                <h1></h1>
+                                <p></p>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="{{ asset('bundles/dist1/img/slide-four.jpg')}}" alt="">
+                            <img src="{{ asset('bundles/dist1/img/slide-four.png')}}" alt="">
                             <div class="carousel-caption">
-                                <h1>Training_materials</h1>
-                                <p>Simplifies the training of workers</p>
+                                <h1></h1>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -55,54 +65,124 @@
     <section class="about text-center" id="about">
         <div class="container">
             <div class="row">
-                <h2>Contributors</h2>
-                <h4>Contributors to the success </h4>
-                <div class="col-md-4 col-sm-6">
+                </a><br>
+                </a><br>
+                <h2 style="color: #3a9cc8;font-size: 70px;">Benefits</h2>
+                <h3 style="font-size: 40px;">Deliverables of Enhancer </h3>
+                </a><br>
+                <div class="col-md-3 col-sm-6">
                     <div class="single-about-detail clearfix">
                         <div class="about-img">
-                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/item1.jpg') }}" alt="">
+                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/benefit1.png') }}" alt="">
                         </div>
-                        <div class="about-details">
-                            <div class="pentagon-text">
-                                <h1>1</h1>
-                            </div>
-                            <h3>Dr:Chandana Siriwardana</h3>
-                            <p>PhD (Calgary) MSc (Tokyo)  BSc (Eng.)(hons) Senior Lecturer | University of Moratuwa</p>
+                        <div class="about-details"><br>
+                            <h3>Minimum Reworks</h3><br>
+                            <p>Minimize the construction errors. Reduce the reworks</p><br>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-about-detail">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-about-detail clearfix">
                         <div class="about-img">
-                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/item2.jpg') }}" alt="">
+                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/benefit2.png') }}" alt="">
                         </div>
                         <div class="about-details">
-                            <div class="pentagon-text">
-                                <h1>2</h1>
-                            </div>
-
-                            <h3>Nishan Madusanka</h3>
-                            <p>Researcher - Civil Engineering undergraduate University of Moratuwa</p>
+                            <br>
+                            <h3>Knowledge Sharing</h3><br>
+                            <p>Acts as an knowledge sharing platform.<br> Improve the skill levels.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="single-about-detail">
                         <div class="about-img">
-                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/item3.jpg') }}" alt="">
+                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/benefit3.png') }}" alt="">
                         </div>
                         <div class="about-details">
-                            <div class="pentagon-text">
-                                <h1>3</h1>
-                            </div>
-                            <h3>Nuwan Rathnayake</h3>
-                            <p>Web developer - Computer Science & Engineering undegraduate University of Moratuwa </p>
+                            <h3>Keeping up With the New Technology </h3>
+                            <p>Enhancer Unables Company to Updated with the Cutting Edge Technology.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-about-detail">
+                        <div class="about-img">
+                            <img class="img-responsive" src="{{ asset('bundles/dist1/img/benefit4.png') }}" alt="">
+                        </div>
+                        <div class="about-details">
+                            <h3>Access to Training Materials</h3><br>
+                            <p>Easy to conduct training programmes. </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section><!-- end of about section -->
+
+    <section class="service text-center" id="service">
+        <div class="container">
+            <div class="row">
+                <div class="team-heading text-center">
+                    <h2 style="color: #3a9cc8;font-size: 70px;"> Enhancer Development Process</h2><br>
+                <img class="img-responsive" src="{{ asset('bundles/dist1/img/researchBase.png') }}" alt="">
+            </div>
+        </div>
+    </section><!-- end of service section -->
+
+
+    <!-- team section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="team-heading text-center">
+                    </a><br>
+                    </a><br>
+                    <h2 style="color: #3a9cc8;font-size: 70px;">About Us</h2>
+                    <h4></h4>
+                </div>
+                {#<div class="col-md-1"></div>#}
+                <div class="col-md-4 single-member col-sm-3">
+                    <div class="person">
+                        <img class="img-responsive" src="{{ asset('bundles/dist1/img/member1.jpg') }}" alt="member-1">
+                    </div>
+                    <div class="person-detail">
+                        <div class="arrow-bottom"></div>
+                        <h3>Dr. Chandana Siriwardana</h3>
+                        <p>PhD (Calgary)|MSc (Tokyo)|BSc (Eng.) (hons) </p>
+                        <p>Senior Lecturer|Construction Management Research Group|University of Moratuwa </p>
+                    </div>
+                </div>
+                {#<div class="col-md-1"></div>#}
+                <div class="col-md-4 single-member col-sm-3">
+                    <div class="person">
+                        <img class="img-responsive" src="{{ asset('bundles/dist1/img/member2.jpg') }}" alt="member-1">
+                    </div>
+                    <div class="person-detail">
+                        <div class="arrow-bottom"></div>
+                        <h3>Nishan Madusanka</h3><br>
+                        <p>Researcher |BSc(Eng.) (hons)</p>
+                        <p>Department of Civil Engineering | University of Moratuwa</p>
+                        <p> </p>
+                    </div>
+                </div>
+                {#<div class="col-md-1"></div>#}
+                <div class="col-md-4 single-member col-sm-3">
+                    <div class="person">
+                        <img class="img-responsive" src="{{ asset('bundles/dist1/img/member3.jpg') }}" alt="member-3">
+                    </div>
+                    <div class="person-detail">
+                        <div class="arrow-bottom"></div>
+                        <h3>Nuwan Rathnayake</h3>
+                        <p>Web developer|BSc(Eng.) (hons)</p>
+                        <p>Department of Computer Science & Engineering|University of Moratuwa </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- end of team section -->
+
+
     <div class="container">
         <div class="row">
             <div class="contact-caption clearfix">
